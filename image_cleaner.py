@@ -126,6 +126,7 @@ if __name__ == "__main__":
 
     endings = [".jpg", ".png", ".gif"]
     images_list = [i for i in images_list if any(e in i for e in endings)]
+    images_list = sorted(images_list)
 
     for filename in images_list:
         print(filename, end=" - ", flush=True)
