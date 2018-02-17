@@ -9,7 +9,6 @@ import skimage.transform as skit
 import skimage.exposure as skie
 import scipy.ndimage as scipynd
 import argparse
-import matplotlib.pyplot as plt
 import warnings
 
 
@@ -165,34 +164,6 @@ if __name__ == "__main__":
         topr = (topr[0]*w_factor, topr[1]*h_factor)
         botl = (botl[0]*w_factor, botl[1]*h_factor)
         botr = (botr[0]*w_factor, botr[1]*h_factor)
-
-        ### temporary
-        topl = (int(topl[0]), int(topl[1]))
-        topr = (int(topr[0]), int(topr[1]))
-        botl = (int(botl[0]), int(botl[1]))
-        botr = (int(botr[0]), int(botr[1]))
-        original_image[topl[1]-4:topl[1]+4 , topl[0]-4:topl[0]+4 , : ] = 0
-        original_image[topr[1]-4:topr[1]+4 , topr[0]-4:topr[0]+4 , : ] = 0
-        original_image[botl[1]-4:botl[1]+4 , botl[0]-4:botl[0]+4 , : ] = 0
-        original_image[botr[1]-4:botr[1]+4 , botr[0]-4:botr[0]+4 , : ] = 0
-
-        o00 = original_image[:500 ,:500,:]
-        o01 = original_image[:500 ,-500:,:]
-        o10 = original_image[-500:,:500,:]
-        o11 = original_image[-500:,-500:,:]
-
-
-        plt.subplot(221)
-        plt.imshow(o00)
-        plt.subplot(222)
-        plt.imshow(o01)
-        plt.subplot(223)
-        plt.imshow(o10)
-        plt.subplot(224)
-        plt.imshow(o11)
-        plt.show()
-        continue
-        ### temporary end
 
         print("transform", end=" - ", flush=True)
         points_is = np.array([topl,topr,botl,botr], dtype=np.float32)
