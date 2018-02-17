@@ -190,4 +190,6 @@ if __name__ == "__main__":
         save_tail = "clean_{}".format(save_tail)
         save_filename = os.path.join(save_head,save_tail)
         print("save {}".format(save_filename))
-#        skiio.imsave(save_filename, image)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            skiio.imsave(save_filename, image)
